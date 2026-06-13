@@ -6,7 +6,7 @@ import { ArrowLeft, Clapperboard, Eye, EyeOff, Popcorn, File } from "lucide-reac
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE = "http://localhost:5000/api/auth";
+const API_BASE = "https://movie-booking-website-1-zob1.onrender.com/api/auth";
 
 const LoginPage = () => {
 

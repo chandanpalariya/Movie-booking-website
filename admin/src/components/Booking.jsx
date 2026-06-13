@@ -34,7 +34,7 @@ function getStoredToken() {
 }
 
 
-const API_BASE="http://localhost:5000"
+const API_BASE="https://movie-booking-website-1-zob1.onrender.com"
 const Booking = () => {
    const [selectedMovie, setSelectedMovie] = useState("");
   const [bookings, setBookings] = useState([]);

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { moviesPageStyles } from "../assests/dummyStyles";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://movie-booking-website-1-zob1.onrender.com";
 const COLLAPSE_COUNT = 12;
 const PLACEHOLDER =
   "https://via.placeholder.com/400x600?text=No+Poster";

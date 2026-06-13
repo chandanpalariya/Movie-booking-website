@@ -3,7 +3,7 @@ import { moviesStyles } from "../assests/dummyStyles";
 import { Link } from "react-router-dom";
 import { Tickets } from "lucide-react";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://movie-booking-website-1-zob1.onrender.com";
 
 const PLACEHOLDER = "https://via.placeholder.com/400x600?text=No+Poster";
 

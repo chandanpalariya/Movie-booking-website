@@ -3,7 +3,7 @@ import React from 'react'
 import { styles3,fontStyles2 } from '../assets/dummyStyle'
 import axios from 'axios'
 
-const API_BASE="http://localhost:5000"
+const API_BASE="https://movie-booking-website-1-zob1.onrender.com"
 
 const fmtINR = (num) =>
   typeof num === "number"

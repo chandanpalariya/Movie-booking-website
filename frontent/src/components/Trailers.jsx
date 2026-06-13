@@ -11,7 +11,7 @@ import {
   X
 } from "lucide-react";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://movie-booking-website-1-zob1.onrender.com";
 
 
 
