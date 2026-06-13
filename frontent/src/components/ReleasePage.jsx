@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { releasesStyles } from '../assests/dummyStyles'
 import movies from '../assests/dummyrdata'
 const PLACEHOLDER_IMG = "https://via.placeholder.com/400x600?text=No+Image";
-const API_BASE = "https://movie-booking-website-1-zob1.onrender.com";
+const API_BASE = "https://movie-booking-website-2-n8ah.onrender.com";
 
 
 

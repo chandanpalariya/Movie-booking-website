@@ -5,7 +5,7 @@ import {Calendar,Film,Play as PlayIcon,Play,Star,Ticket, Search,X,Clock} from "l
 
 
 
-const API_BASE="https://movie-booking-website-1-zob1.onrender.com"
+const API_BASE="https://movie-booking-website-2-n8ah.onrender.com"
 
 function getImageUrl(maybe) {
   // Convert filename, uploads/filename, or partial to a full uploads URL.

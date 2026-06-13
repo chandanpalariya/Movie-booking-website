@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import axios from "axios"
 
-const API_BASE= "https://movie-booking-website-1-zob1.onrender.com/api/auth"
+const API_BASE= "https://movie-booking-website-2-n8ah.onrender.com/api/auth"
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({

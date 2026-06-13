@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { addMoviePageStyles,addMoviePageCustomStyles } from '../assets/dummyStyle'
 import axios from "axios"
-const API_HOST="https://movie-booking-website-1-zob1.onrender.com"
+const API_HOST="https://movie-booking-website-2-n8ah.onrender.com"
 import {Film,Image as ImageIcon,Play,Star,Clock,Plus,X,Upload,Users} from "lucide-react"
 
 const AddPage = () => {
