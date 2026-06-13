@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { signUpStyles } from '../assests/dummyStyles'; 
 import {
@@ -144,7 +145,7 @@ const SignupPage = () => {
         }
 
         setTimeout(()=>{
-          window.location.href="/login";
+          window.location.href = "/login";
 
         },1200)
 
@@ -459,9 +460,9 @@ const SignupPage = () => {
             <div className={signUpStyles.loginContainer}>
               <p className={signUpStyles.loginText}>
                 Already have an account?{' '}
-                <a href="/login" className={signUpStyles.loginLink}>
+                <NavLink to="/login" className={signUpStyles.loginLink}>
                   Sign in to your Account
-                </a>
+                </NavLink>
               </p>
             </div>
           </div>

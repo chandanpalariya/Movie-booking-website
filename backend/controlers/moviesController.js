@@ -10,6 +10,8 @@ const API_BASE = process.env.API_BASE || "https://movie-booking-website-1-zob1.o
 const getUploadUrl = (val) => {
   if (!val) return null;
   if (typeof val === "string" && /^(https?:\/\/)/.test(val)) return val;
+  // Cloudinary URLs are already full URLs
+  if (typeof val === "string" && val.includes("cloudinary")) return val;
   const cleaned = String(val).replace(/^uploads\//, "");
   if (!cleaned) return null;
   return `${API_BASE}/uploads/${cleaned}`;

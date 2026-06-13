@@ -85,6 +85,8 @@ const Navbar = () => {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userEmail');
     localStorage.removeItem('cine_user_email');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setIsLoggedIn(false);
     setUserEmail("");
     window.location.href="/login"
@@ -181,10 +183,10 @@ const Navbar = () => {
                   <span>Logout</span>
                 </button>
               ):(
-                <a href="/login" className={navbarStyles.loginButton}>
+                <NavLink to="/login" className={navbarStyles.loginButton}>
                   <User className={navbarStyles.authIcon}/>
                   <span>Login</span>
-                </a>
+                </NavLink>
               ) }
 
             </div>
@@ -242,10 +244,10 @@ const Navbar = () => {
                    Logout
                   </button>
                 ):(
-                  <a href="/login" className={navbarStyles.mobileLoginButton} onClick={()=>setIsMenuOpen(false)}>
+                  <NavLink to="/login" className={navbarStyles.mobileLoginButton} onClick={()=>setIsMenuOpen(false)}>
                     <User className={navbarStyles.mobileAuthIcon}/>
                    Login
-                  </a>
+                  </NavLink>
                 )
               }
 
