@@ -1,18 +1,20 @@
 import express from "express"
 import multer from "multer"
-import { v2 as cloudinary } from "cloudinary";
-import { CloudinaryStorage } from "multer-storage-cloudinary";
+import path from "path"
 import {createMovie, deleteMovie, getMovieById,getMovies, updateMovie} from "../controlers/moviesController.js"
 
 const movieRouter = express.Router();
 
-// Configure Cloudinary storage
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: "movie-booking",
-    allowed_formats: ["jpg", "jpeg", "png", "webp", "mp4", "mov", "avi"],
+// Use local storage for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(process.cwd(), 'uploads'));
   },
+  filename: (req, file, cb) => {
+    const unique = Date.now() + '-' + Math.round(Math.random() * 1e5);
+    const ext = path.extname(file.originalname);
+    cb(null, `movie-${unique}${ext}`);
+  }
 });
 
 const upload = multer({ storage }).fields([
