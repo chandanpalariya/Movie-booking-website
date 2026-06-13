@@ -11,13 +11,19 @@ import bookingRouter from "./routes/bookingRouter.js"
 
 const app=express();
 
+// Validate required environment variables
+const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET'];
+const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
+if (missingEnvVars.length > 0) {
+  console.error(`Missing required environment variables: ${missingEnvVars.join(', ')}`);
+  process.exit(1);
+}
+
 const port=process.env.PORT||5000;
 
 //middleware
 app.use(cors({
-    origin:"*",
-    credentials: true
-
+    origin: "*"
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -40,6 +46,16 @@ connectDB();
 app.get("/",(req,res)=>{
     res.send("API WORKING")
 })
+
+// Health check endpoint
+app.get("/health", (req, res) => {
+    const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+    res.status(200).json({
+        status: 'ok',
+        database: dbStatus,
+        timestamp: new Date().toISOString()
+    });
+});
 
 
 app.listen(port,()=>{
