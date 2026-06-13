@@ -6,8 +6,8 @@ import dotenv from "dotenv"
 dotenv.config();
 
 
-const CLIENT_URL = "http://localhost:5173";
-const STRIPE_SECRET_KEY =new Stripe(process.env.STRIPE_SECRET_KEY);
+const CLIENT_URL = "https://movie-booking-website-kappa.vercel.app";
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 const STRIPE_API_VERSION = "2022-11-15";
 const RECLINER_ROWS = new Set(["D", "E"]);
 const BLOCKING_STATUSES = ["pending", "paid", "confirmed", "active", "upcoming"];

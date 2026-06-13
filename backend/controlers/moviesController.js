@@ -3,7 +3,7 @@ import Movie from "../models/movieModal.js";
 import path from "path";
 import fs from "fs";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = process.env.API_BASE || "https://movie-booking-website-1-zob1.onrender.com";
 
 /* ---------------------- small helpers ---------------------- */
 

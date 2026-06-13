@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import dotenv from  "dotenv"
+import mongoose from "mongoose"
 dotenv.config();
 
 import { connectDB } from "./config/db.js";
@@ -17,6 +18,11 @@ const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
 if (missingEnvVars.length > 0) {
   console.error(`Missing required environment variables: ${missingEnvVars.join(', ')}`);
   process.exit(1);
+}
+
+// Warn about optional but important environment variables
+if (!process.env.STRIPE_SECRET_KEY) {
+  console.warn('Warning: STRIPE_SECRET_KEY not set - payment features will not work');
 }
 
 const port=process.env.PORT||5000;
@@ -57,6 +63,23 @@ app.get("/health", (req, res) => {
     });
 });
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error('Error:', err);
+    res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Internal server error',
+        error: process.env.NODE_ENV === 'development' ? err.stack : undefined
+    });
+});
+
+// 404 handler
+app.use((req, res) => {
+    res.status(404).json({
+        success: false,
+        message: 'Route not found'
+    });
+});
 
 app.listen(port,()=>{
     console.log(`Server started on http://localhost:${port}`)
