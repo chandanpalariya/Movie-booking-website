@@ -33,7 +33,9 @@ useEffect(()=>{
 
       try{
         setStatusMsg("confirming payment with server")
-        const API_BASE="https://movie-booking-website-2-n8ah.onrender.com"
+        const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+          ? "http://localhost:5000"
+          : "https://movie-booking-website-2-n8ah.onrender.com";
         const res=await axios.get(`${API_BASE}/api/bookings/confirm-payment`,{
             params:{session_id},
             headers:token ?{Authorization:`Bearer${token}`}:{},

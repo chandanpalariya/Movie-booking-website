@@ -383,7 +383,7 @@ export async function deleteBooking(req,res) {
         message:"invalid id"
       })
 
-      const b=await Booking.findByIdAndDelete().lean().exec();
+      const b=await Booking.findByIdAndDelete(id).lean().exec();
       if(!b)return res.status(404).json({
         success:false,
         message:"Booking not found"
@@ -464,7 +464,7 @@ export async function getOccupiedSeats(req, res) {
         })
        }
       const sessionObj=await stripe.checkout.sessions.retrieve(session_id);  
-      if(sessionObj) return res.status(404).json({
+      if(!sessionObj) return res.status(404).json({
         success:false,
         message:"failed to find session "
       })
